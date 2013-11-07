@@ -32,6 +32,12 @@ module.exports = (grunt)->
         options:
           atBegin: true
 
+      html:
+        files: ['template/**/*.html']
+        tasks: ['clean', 'copy']
+        options:
+          atBegin: true
+
     clean: ['src/**/*.js', 'meteor/template/**/*.html']
 
     copy:
