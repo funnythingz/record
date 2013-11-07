@@ -22,7 +22,7 @@ module.exports = (grunt)->
     watch:
       ts:
         files: ['src/**/*.ts']
-        tasks: ['typescript', 'concat', 'clean']
+        tasks: ['typescript', 'concat', 'clean', 'copy']
         options:
           atBegin: true
 
@@ -32,7 +32,12 @@ module.exports = (grunt)->
         options:
           atBegin: true
 
-    clean: ['src/**/*.js']
+    clean: ['src/**/*.js', 'meteor/template/**/*.html']
+
+    copy:
+      template:
+        src:  'template/**/*'
+        dest: 'meteor/'
 
   })
 
@@ -41,5 +46,6 @@ module.exports = (grunt)->
   grunt.loadNpmTasks('grunt-contrib-concat')
   grunt.loadNpmTasks('grunt-contrib-watch')
   grunt.loadNpmTasks('grunt-contrib-clean')
+  grunt.loadNpmTasks('grunt-contrib-copy')
 
-  grunt.registerTask('default', ['typescript', 'concat', 'clean', 'compass'])
+  grunt.registerTask('default', ['typescript', 'concat', 'clean', 'copy', 'compass'])
