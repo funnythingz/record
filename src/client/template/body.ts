@@ -1,11 +1,7 @@
-if (Meteor.isClient) {
+Template.body.helpers({
 
-    Template.body.helpers({
+    greeting: ()=> {
+        return "ahya";
+    }
 
-        greeting: ()=> {
-            return "oh yeah!";
-        }
-
-    });
-
-}
+});

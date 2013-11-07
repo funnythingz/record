@@ -1,11 +1,7 @@
-if (Meteor.isClient) {
+Template.footer.helpers({
 
-    Template.footer.helpers({
+    copyright: ()=> {
+        return "funnythingz";
+    }
 
-        copyright: ()=> {
-            return "funnythingz";
-        }
-
-    });
-
-}
+});
