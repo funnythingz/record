@@ -3,6 +3,13 @@ Template.body.helpers({
         return "ahya";
     }
 });
+
+Template.body.events({
+    'click .hoge': function (event) {
+        event.preventDefault();
+        console.log("hoge");
+    }
+});
 ;Template.footer.helpers({
     copyright: function () {
         return "funnythingz";
@@ -14,13 +21,5 @@ Template.body.helpers({
     },
     description: function () {
         return "description";
-    }
-});
-
-Template.header.events({
-    'click input': function () {
-        if (typeof console !== 'undefined') {
-            console.log("You pressed the button");
-        }
     }
 });
