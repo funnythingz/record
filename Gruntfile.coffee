@@ -18,9 +18,11 @@ module.exports = (grunt)->
       options:
         separator: ';'
 
-    typescript:
+    ts:
       base:
         src: ['src/**/*.ts']
+        options:
+          sourceMap: false
 
     compass:
       dist:
@@ -30,7 +32,7 @@ module.exports = (grunt)->
     watch:
       ts:
         files: ['src/**/*.ts']
-        tasks: ['typescript', 'concat', 'clean', 'copy']
+        tasks: ['ts', 'concat', 'clean', 'copy']
         options:
           atBegin: true
 
@@ -46,7 +48,7 @@ module.exports = (grunt)->
         options:
           atBegin: true
 
-    clean: ['src/**/*.js', 'meteor/template/**/*.html']
+    clean: ['src/**/*.js', 'meteor/template/**/*.html', 'tscommand.tmp.txt']
 
     copy:
       template:
@@ -56,10 +58,10 @@ module.exports = (grunt)->
   })
 
   grunt.loadNpmTasks('grunt-contrib-compass')
-  grunt.loadNpmTasks('grunt-typescript')
+  grunt.loadNpmTasks('grunt-ts')
   grunt.loadNpmTasks('grunt-contrib-concat')
   grunt.loadNpmTasks('grunt-contrib-watch')
   grunt.loadNpmTasks('grunt-contrib-clean')
   grunt.loadNpmTasks('grunt-contrib-copy')
 
-  grunt.registerTask('default', ['typescript', 'concat', 'clean', 'copy', 'compass'])
+  grunt.registerTask('default', ['ts', 'concat', 'clean', 'copy', 'compass'])
